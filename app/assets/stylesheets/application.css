@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font-family: 'source code pro', sans-serif;
+}
+
+h1, h2 {
+  font-weight: 550;
+  text-align: center;
+}
+
+p {
+  font-weight: 400;
+}

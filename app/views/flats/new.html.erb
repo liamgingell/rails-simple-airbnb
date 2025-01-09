@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2>New Flat</h2>
+    </div>
+    <div class="card-body">
+      <%= form_with(model: @flat, local: true) do |form| %>
+        <% if @flat.errors.any? %>
+          <div class="alert alert-danger">
+            <h4 class="alert-heading">Please fix the following errors:</h4>
+            <ul>
+              <% @flat.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <%= form.label :name, class: 'form-label' %>
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :address, class: 'form-label' %>
+          <%= form.text_field :address, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :description, class: 'form-label' %>
+          <%= form.text_area :description, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :price_per_night, class: 'form-label' %>
+          <%= form.number_field :price_per_night, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= form.label :number_of_guests, class: 'form-label' %>
+          <%= form.number_field :number_of_guests, class: 'form-control', min: 1, max: 8  %>
+        </div>
+        <div class="form-group mt-3">
+          <%= form.submit 'Create Flat', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Back', flats_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>

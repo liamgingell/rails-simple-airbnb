@@ -7,7 +7,7 @@ class Flat < ApplicationRecord
 
   validates :price_per_night, numericality: { greater_than: 0 }
 
-  validates :number_of_guests, numericality: { greater_than: 0 }
+  validates :number_of_guests, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 8 }
 
   validates :name, uniqueness: true
 
